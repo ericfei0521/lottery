@@ -1,7 +1,9 @@
 import React, { Suspense } from 'react';
 import { Provider } from 'react-redux';
 import store from './store/store';
-const Timmer = React.lazy(() => import('./components/Timmer'));
+const Timmer = React.lazy(() => import('./components/TimmerSetter'));
+const TimmerCountDown = React.lazy(() => import('./components/TimmerCountDown'));
+const CandidateList = React.lazy(() => import('./components/CandidateList'));
 
 function App() {
     return (
@@ -13,6 +15,8 @@ function App() {
                     }}
                 >
                     <Timmer />
+                    <TimmerCountDown />
+                    <CandidateList />
                 </Suspense>
             </div>
         </Provider>

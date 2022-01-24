@@ -4,3 +4,9 @@ export function setTimer(value) {
         payload: value,
     };
 }
+export function setCandidate(value) {
+    return {
+        type: 'SET_CANDIDATE',
+        payload: value,
+    };
+}
