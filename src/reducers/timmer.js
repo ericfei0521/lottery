@@ -9,7 +9,7 @@ const HandleTimmer = (state = initTime, action) => {
             let newMin = action.payload.min;
             let newSec = action.payload.sec;
             if (action.payload.sec / 60 > 1) {
-                newMin += Math.floor(action.payload.min / 60);
+                newMin += Math.floor(action.payload.sec / 60);
                 newSec = action.payload.sec % 60;
             }
             const newTime = { min: newMin, sec: newSec };

@@ -8,17 +8,18 @@ const Timmer = () => {
     const dispatch = useDispatch();
     const state = useSelector((state) => state.HandleTimmer);
     const setTime = () => {
-        console.log(minRef.current.value);
-        dispatch(setTimer({ min: minRef.current.value, sec: secRef.current.value }));
+        const newMin = minRef.current.value || 0;
+        const newSec = secRef.current.value || 0;
+        dispatch(setTimer({ min: newMin, sec: newSec }));
     };
     return (
         <div>
-            <input placeholder="please enter min" ref={minRef} />
-            <input placeholder="please enter second" ref={secRef} />
+            <input type="number" min="0" placeholder="please enter min" ref={minRef} />
+            <input type="number" min="0" placeholder="please enter second" ref={secRef} />
             <button onClick={setTime}>Enter</button>
-            <span>{state.min > 0 ? state.min : `0${state.min}`}</span>
+            <span>{state.min > 9 ? state.min : `0${state.min}`}</span>
             <span>:</span>
-            <span>{state.sec > 0 ? state.sec : `0${state.sec}`}</span>
+            <span>{state.sec > 9 ? state.sec : `0${state.sec}`}</span>
         </div>
     );
 };
