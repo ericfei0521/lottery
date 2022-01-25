@@ -60,8 +60,11 @@ const randomNameGenerator = () => {
     let finalName = '';
     const firstRandomIndex = Math.floor(Math.random() * PossibleFirst.length);
     const lastRandomIndex = Math.floor(Math.random() * PossibleLast.length);
-    finalName = PossibleFirst[firstRandomIndex] + PossibleLast[lastRandomIndex];
+    finalName = `${PossibleFirst[firstRandomIndex]}  ${PossibleLast[lastRandomIndex]}`;
     return finalName;
+};
+export const randomPicker = (count) => {
+    return Math.floor(Math.random() * count);
 };
 
 export default randomNameGenerator;
