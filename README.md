@@ -3,6 +3,7 @@
 ### Description
 
 Input the countdown timer and start , after coutdown to 0 will randomly select a winner 
+** the generater will auto generate list , default set is 9 members **
 
 ### Installation
 
