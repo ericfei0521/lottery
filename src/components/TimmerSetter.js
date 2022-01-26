@@ -7,17 +7,27 @@ const Timmer = ({ className }) => {
     const minRef = useRef(null);
     const secRef = useRef(null);
     const dispatch = useDispatch();
+    const alertValue = (e) => {
+        if (e.target.value > 999) {
+            e.target.value = 999;
+            alert('max value has to under 999');
+        }
+    };
     const setTime = () => {
         const newMin = minRef.current.value || 0;
         const newSec = secRef.current.value || 0;
+        if (newMin > 999 || newSec > 999) {
+            alert('max min or sec has to under 999');
+            return;
+        }
         dispatch(setTimer({ min: newMin, sec: newSec }));
     };
 
     return (
         <div className={className}>
-            <input type="number" min="0" placeholder="00" ref={minRef} />
+            <input type="number" min="0" max="999" placeholder="00" ref={minRef} onChange={alertValue} />
             <span className="dot">:</span>
-            <input type="number" min="0" placeholder="00" ref={secRef} />
+            <input type="number" min="0" max="999" placeholder="00" ref={secRef} onChange={alertValue} />
             <button onClick={setTime}>Enter</button>
         </div>
     );
