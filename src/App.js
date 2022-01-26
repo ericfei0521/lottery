@@ -11,13 +11,15 @@ const CandidateList = React.lazy(() => import('./components/CandidateList'));
 const Winner = React.lazy(() => import('./components/Winner'));
 const Template = styled.div`
     max-width: 1200px;
-    height: 100vh;
+    height: fit-content;
+    min-height: 100vh;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: rgba(1, 1, 1, 0.2);
     backdrop-filter: blur(5px);
+    padding-bottom: 20px;
 `;
 function App() {
     return (

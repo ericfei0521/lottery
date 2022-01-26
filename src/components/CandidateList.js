@@ -134,4 +134,12 @@ export default styled(CandidateList)`
             width: 100%;
         }
     }
+    @media (max-width: 350px) {
+        .list {
+            gap: 5px;
+        }
+        .card {
+            width: 45%;
+        }
+    }
 `;
