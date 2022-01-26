@@ -52,9 +52,9 @@ const TimmerCountDown = ({ className }) => {
     return (
         <div className={className}>
             <div className="countdown-display">
-                <span>{remainTime.min > 9 ? remainTime.min : `0${remainTime.min}`}</span>
+                <span className="time">{remainTime.min > 9 ? remainTime.min : `0${remainTime.min}`}</span>
                 <span>:</span>
-                <span>{remainTime.sec > 9 ? remainTime.sec : `0${remainTime.sec}`}</span>
+                <span className="time">{remainTime.sec > 9 ? remainTime.sec : `0${remainTime.sec}`}</span>
             </div>
             <div className="buttons">
                 <button
@@ -95,7 +95,14 @@ export default styled(TimmerCountDown)`
         justify-content: center;
         width: 70%;
         gap: 10px;
+        .time {
+            width: 120px;
+        }
         span {
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            line-height: 60px;
             letter-spacing: 5px;
         }
     }
@@ -123,6 +130,8 @@ export default styled(TimmerCountDown)`
     }
     @media (max-width: 990px) {
         flex-direction: column;
+        width: 70%;
+
         .countdown-display {
             width: 100%;
         }
@@ -132,5 +141,8 @@ export default styled(TimmerCountDown)`
         button {
             width: 50%;
         }
+    }
+    @media (max-width: 350px) {
+        width: 80%;
     }
 `;

@@ -9,8 +9,12 @@ const CandidateList = ({ className }) => {
     const dispatch = useDispatch();
     const regenenerateCandidate = () => {
         let regenNum = 9;
-        if (candidateRef?.current?.value) {
+        if (candidateRef?.current?.value && candidateRef?.current?.value > 0 && candidateRef?.current?.value <= 12) {
             regenNum = candidateRef.current.value;
+        } else {
+            alert('Candidate number must between 1 to 12 ');
+            candidateRef.current.value = 0;
+            return;
         }
         dispatch(setCandidate(regenNum));
     };
@@ -52,6 +56,7 @@ export default styled(CandidateList)`
     flex-direction: column;
     height: fit-content;
     border-bottom: 3px solid black;
+    margin-bottom: 1em;
     .setter {
         align-self: center;
         display: flex;
@@ -63,18 +68,16 @@ export default styled(CandidateList)`
 
     .list {
         width: 100%;
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
         height: fit-content;
-        justify-content: flex-start;
-        align-items: center;
         margin: 0 auto;
         gap: 15px;
-        max-height: 400px;
+        grid-template-columns: repeat(4, 1fr);
         overflow-y: auto;
+        align-self: center;
     }
     .card {
-        width: 18%;
+        width: 100%;
         height: 100px;
         background-color: rgba(1, 1, 1, 0.8);
         color: white;
@@ -83,6 +86,8 @@ export default styled(CandidateList)`
         justify-content: center;
         align-items: center;
         span {
+            font-size: 0.8em;
+            padding: 0 5px;
             text-align: center;
         }
     }
@@ -92,7 +97,7 @@ export default styled(CandidateList)`
         width: 70%;
         min-width: 300px;
         padding: 5px;
-        font-size: 30px;
+        font-size: 2em;
         border-top: none;
         border-left: none;
         border-right: none;
@@ -101,6 +106,7 @@ export default styled(CandidateList)`
         -moz-box-shadow: none;
         box-shadow: none;
         text-align: center;
+        margin-bottom: 20px;
     }
     input:focus {
         outline: none;
@@ -121,25 +127,24 @@ export default styled(CandidateList)`
         transform: scale(0.9);
     }
     @media (max-width: 990px) {
+        width: 70%;
         .setter {
             flex-direction: column;
         }
         .list {
+            grid-template-columns: repeat(3, 1fr);
             gap: 10px;
         }
-        .card {
-            width: 30%;
-        }
+
         button {
             width: 100%;
         }
     }
     @media (max-width: 350px) {
+        width: 80%;
         .list {
-            gap: 5px;
-        }
-        .card {
-            width: 45%;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3px;
         }
     }
 `;

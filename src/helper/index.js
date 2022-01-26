@@ -66,5 +66,4 @@ const randomNameGenerator = () => {
 export const randomPicker = (count) => {
     return Math.floor(Math.random() * count);
 };
-
 export default randomNameGenerator;

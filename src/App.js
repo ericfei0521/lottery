@@ -19,7 +19,9 @@ const Template = styled.div`
     align-items: center;
     background-color: rgba(1, 1, 1, 0.2);
     backdrop-filter: blur(5px);
-    padding-bottom: 20px;
+    @media (max-width: 990px) {
+        padding-bottom: 20px;
+    }
 `;
 function App() {
     return (
