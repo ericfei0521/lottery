@@ -9,7 +9,10 @@ const LotteryProvider = ({ children }) => {
     const state = useSelector((state) => state.HandleCandidate);
 
     useMemo(() => {
-        if (!isFinalCountDown) return;
+        if (!isFinalCountDown) {
+            setWinner(null);
+            return;
+        }
         const selectIndex = randomPicker(state.length);
         setWinner(state[selectIndex]);
     }, [isFinalCountDown]);
