@@ -8,4 +8,4 @@ npm i
 npm run start 
 
 # Demo link 
-https://lottery-b4bc9.web.app/
+https://lottery-three.vercel.app/
