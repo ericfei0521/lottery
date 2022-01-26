@@ -1,11 +1,27 @@
-# To Clone the app 
-git clone the url link under code button
+## Lottery Picker
 
-# Install the app dependencies 
-npm i
+### Description
 
-# How to run app 
-npm run start 
+Input the countdown timer and start , after coutdown to 0 will randomly select a winner 
 
-# Demo link 
+### Installation
+
+step 01:
+git clone https://github.com/ericfei0521/lottery.git
+
+step 02:
+cd lottery
+
+step 03:
+npm install
+
+### activate
+
+npm run start
+
+### Using the app
+Local: 
+http://localhost:3000
+
+Demo:
 https://lottery-three.vercel.app/
